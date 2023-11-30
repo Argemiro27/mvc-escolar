@@ -1,0 +1,90 @@
+body {
+    height: 100vh;
+    font-family: 'Open Sans', sans-serif;
+    
+    background: #ececec;
+}
+
+.collapse.width.show {
+    transition: max-width 0.3s ease, min-width 0.3s ease;
+    width: 100%;
+    max-width: 100%;
+    min-width: initial;
+}
+
+.collapse.width,
+.collapsing.width {
+    max-width: 0;
+    min-width: 0;
+    width: 0;
+    transition: all 0.2s ease;
+}
+
+.collapse .flex-column {
+    max-height: 100vh;
+    overflow: auto;
+    flex-wrap: nowrap;
+    /* Optional, if you don't want the links to form columns if they overflow */
+}
+
+.collapse .flex-column li {
+    width: 100%;
+}
+
+/* Cores Padrão */
+:root {
+    --cor-primaria: #dadada; /* Azul */
+    --cor-secundaria: #d3c4c4; /* Verde */
+    --cor-terciaria: #e74c3c; /* Vermelho */
+}
+
+
+/*---------------------------------* MENUS *-----------------------------------*/
+
+/* Estilo da Sidebar */
+.sidebar {
+    max-width: 30px !important;
+    min-width: 200px !important;
+    height: 100vh;
+    background-color: var(
+        --cor-primaria
+    ); /* Use a cor primária como background */
+    display: block;
+    justify-content: center;
+    align-items: center;
+    align-self: center;
+    text-align: center;
+    font-size: 13px !important;
+}
+
+.navbar {
+    background-color: var(
+        --cor-primaria
+    ); /* Use a cor primária como background */
+    
+}
+
+.btn-nav-link{
+    background-color: inherit;
+    width: 70%;
+
+    text-align: left;
+    font-size: 13px !important;
+}
+
+
+.content-area {
+    max-height: 88vh; /* Altere o valor conforme necessário */
+    overflow-y: auto;
+    margin: 101px;
+}
+
+.btn-font{
+    font-size: 11px;
+}
+
+table{
+    font-size: 12px;
+}
+
+
