@@ -73,15 +73,29 @@ body {
 }
 
 
+/* Content geral das páginas */
 .content-area {
     max-height: 88vh; /* Altere o valor conforme necessário */
     overflow-y: auto;
     margin: 101px;
 }
 
+/*Estilos de links */
+
 .btn-font{
     font-size: 11px;
 }
+
+a{
+    color: inherit !important;
+}
+a:hover{
+    text-decoration: none;
+}
+
+
+
+/*Configurações de tabelas e formulários*/
 
 table{
     font-size: 12px;

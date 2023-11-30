@@ -1,25 +1,11 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
 <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
-    <!-- CSRF Token -->
-    <meta name="csrf-token" content="{{ csrf_token() }}">
-
-    <title>{{ config('app.name', 'Laravel') }}</title>
-
-    <!-- Scripts -->
-    <script src="{{ asset('js/app.js') }}" defer></script>
-
-    <!-- Fonts -->
-    <link rel="dns-prefetch" href="//fonts.gstatic.com">
-    <link href="https://fonts.googleapis.com/css?family=Nunito" rel="stylesheet">
-
-    <!-- Styles -->
-    <link href="{{ asset('css/app.css') }}" rel="stylesheet">
-
+    <title>Laravel</title>
 
     <!-- Fonts -->
     <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@400;600;700&display=swap" rel="stylesheet">
@@ -34,69 +20,88 @@
 
 </head>
 
-<body>
-    <div id="app">
-        <nav class="navbar navbar-expand-md navbar-light bg-white shadow-sm">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
-                    {{ config('app.name', 'Laravel') }}
-                </a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse"
-                    data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent"
-                    aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
-                    <span class="navbar-toggler-icon"></span>
-                </button>
+<body class="antialiased">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
 
-                <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                    <!-- Left Side Of Navbar -->
-                    <ul class="navbar-nav me-auto">
-
-                    </ul>
-
-                    <!-- Right Side Of Navbar -->
-                    <ul class="navbar-nav ms-auto">
-                        <!-- Authentication Links -->
-                        @guest
-                            @if (Route::has('login'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('login') }}">{{ __('Login') }}</a>
-                                </li>
-                            @endif
-
-                            @if (Route::has('register'))
-                                <li class="nav-item">
-                                    <a class="nav-link" href="{{ route('register') }}">{{ __('Register') }}</a>
-                                </li>
-                            @endif
-                        @else
-                            <li class="nav-item dropdown">
-                                <a id="navbarDropdown" class="nav-link dropdown-toggle" href="#" role="button"
-                                    data-bs-toggle="dropdown" aria-haspopup="true" aria-expanded="false" v-pre>
-                                    {{ Auth::user()->name }}
+    <div class="container-fluid h-100">
+        <div class="row">
+            <div class="col-5 col-md-3 collapse width m-0 p-0 sidebar" id="collapseExample">
+                <img src="assets/icon.png" height="100" class="mt-3" alt="">
+                <div class="btn-nav" id="accordionExample">
+                    <div class="" id="headingOne">
+                        <h2 class="mb-0">
+                            <button class="btn btn-nav-link" type="button" data-toggle="collapse"
+                                aria-controls="collapseOne">
+                                <i class="bi bi-house-fill"></i> Home
+                            </button>
+                        </h2>
+                    </div>
+                    <div class="btn-nav" id="headingOne">
+                        <h2 class="mb-0">
+                            <button class="btn btn-nav-link" type="button" data-toggle="collapse"
+                                data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+                                <i class="bi bi-list"></i> Listagem
+                            </button>
+                        </h2>
+                    </div>
+                    <div id="collapseOne" class="collapse show" aria-labelledby="headingOne"
+                        data-parent="#accordionExample">
+                        <div class="card-body">
+                            <div class="bg-light rounded  p-3">
+                                <a href="/listagem-alunos" class="align-items-center justify-content-center ">
+                                    <p><span><i class="bi bi-book"></i></span> Alunos</p>
                                 </a>
+                                <a href="/listagem-salas">
+                                    <p><span><i class="bi bi-door-closed"></i></span> Salas</p>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                    
 
-                                <div class="dropdown-menu dropdown-menu-end" aria-labelledby="navbarDropdown">
-                                    <a class="dropdown-item" href="{{ route('logout') }}"
-                                        onclick="event.preventDefault();
-                                                     document.getElementById('logout-form').submit();">
-                                        {{ __('Logout') }}
-                                    </a>
 
-                                    <form id="logout-form" action="{{ route('logout') }}" method="POST" class="d-none">
-                                        @csrf
-                                    </form>
-                                </div>
-                            </li>
-                        @endguest
-                    </ul>
                 </div>
             </div>
-        </nav>
 
-        <main class="py-4">
-            @yield('content')
-        </main>
+
+            <div class="col">
+
+                <div class="row">
+
+                    <div class="col-12">
+
+                        <!-- As a link -->
+                        <nav class="navbar rounded-bottom">
+                            <button class="btn sticky-top" data-toggle="collapse" href="#collapseExample" id=""
+                                role="button">
+                                <i class="bi bi-list"></i>
+                            </button>
+                            <div class="nav-right">
+                                <button class="btn sticky-top">
+                                    <i class="bi bi-bell"></i>
+                                </button>
+                                <img src="https://mdbcdn.b-cdn.net/img/new/avatars/2.webp" class="rounded-circle"
+                                    style="width: 50px;" alt="Avatar" />
+                            </div>
+                        </nav>
+                        <div class="card p-4 m-3 content-area">
+
+                            <main class="py-4">
+                                @yield('content')
+                            </main>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
     </div>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script>
+        $(document).ready(function() {
+            // Trigger the click event on the button that controls the menu
+            $('[data-toggle="collapse"]').trigger('click');
+        });
+    </script>
 </body>
 
 </html>
